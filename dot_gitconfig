@@ -1,0 +1,26 @@
+[user]
+	name = 한규호
+	email = hkh7670@gmail.com
+[core]
+	excludesfile = /Users/kyu/.gitignore_global
+[commit]
+	template = /Users/kyu/.stCommitMsg
+[init]
+    defaultBranch = main
+[alias]
+	lg = log --graph --decorate=short --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%h%C(reset) %C(bold)%s%C(reset) %C(dim)·%C(reset) %C(brightcyan)%an%C(reset) %C(dim)(%cd)%C(reset) %C(bold brightmagenta)%d%C(reset)'
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[http]
+    sslVerify = false
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+

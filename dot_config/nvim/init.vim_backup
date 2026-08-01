@@ -1,0 +1,185 @@
+" -------------------------------
+" 플러그인 설정 시작
+" -------------------------------
+call plug#begin('~/.vim/plugged')
+
+" OneDark 색상 테마 플러그인 (Lua 기반)
+Plug 'navarasu/onedark.nvim'
+
+" vim 상태줄 테마
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
+
+" Vim Multi Cursor를 위한 플러그인
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+" -------------------------------
+" 플러그인 설정 끝
+" -------------------------------
+
+
+" 문법 강조 활성화 (기본 문법 하이라이팅)
+if has("syntax")
+  syntax on
+endif
+
+
+" vim status line 설정
+lua << END
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'onedark',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    always_show_tabline = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+      refresh_time = 16, -- ~60fps
+      events = {
+        'WinEnter',
+        'BufEnter',
+        'BufWritePost',
+        'SessionLoadPost',
+        'FileChangedShellPost',
+        'VimResized',
+        'Filetype',
+        'CursorMoved',
+        'CursorMovedI',
+        'ModeChanged',
+      },
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+END
+
+
+" One Dark 테마 설정 및 활성화 (스타일은 'dark', 'warmer', 'cool' 등 가능)
+lua << END
+require('onedark').setup  {
+    -- Main options --
+    style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = false, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+        background = true,    -- use background color for virtual text
+    },
+}
+require('onedark').load()
+END
+
+
+" -------------------------------
+" 에디터 기본 설정
+" -------------------------------
+
+set hlsearch                         " 검색 결과 강조 표시
+set nu                               " 줄 번호 표시
+set autoindent                       " 자동 들여쓰기 활성화
+set ts=4                             " Tab을 누를 때 실제 폭 (공백 4칸)
+set sts=4                            " Soft Tab Stop (백스페이스 시 기준 폭)
+set cindent                          " C 스타일 들여쓰기 규칙 사용
+set laststatus=2                     " 항상 상태줄 표시
+set shiftwidth=4                     " >> 또는 << 시 들여쓰기 폭
+set showmatch                        " 여는 괄호 입력 시 닫는 괄호 자동 강조
+set smartcase                        " 검색 시 대소문자 구분 스마트하게 처리
+set smarttab                         " Tab을 상황에 맞게 처리
+set smartindent                      " 코드 구조에 맞춰 자동 들여쓰기
+set tabstop=4                        " Tab 문자의 폭 (공백 기준)
+set expandtab                        " Tab 입력 시 공백으로 변환
+set ruler                            " 상태줄에 커서 위치 표시
+set fileencodings=utf8,euc-kr        " 파일 인코딩 감지 순서 (우선 UTF-8)
+set noshowmode                       " -- INSERT -- 등 모드 표시 비활성화 (lightline이 대체함)
+set clipboard=unnamedplus            " 시스템 클립보드와 연동 (복사/붙여넣기 공유)
+set termguicolors                    " True Color 지원 (256색 이상 사용 가능)
+set relativenumber                   " 현재 줄은 절대 번호로, 나머지 줄은 상대적인 거리로 표시해 줍니다. 10j (10줄 아래로) 같은 이동이 매우 직관적이 됩니다.
+set incsearch                        " 검색어를 입력하는 동안 실시간으로 일치하는 패턴을 보여줍니다.
+set undofile                         " 파일을 닫았다가 다시 열어도 수정 내역(undo)이 유지됩니다.
+set scrolloff=8                      " 커서가 화면 위/아래 8줄 근처로 가면 자동으로 스크롤을 시작하여 항상 주변 코드를 넓게 볼 수 있습니다
+
+" 라인 강조
+set cursorline
+hi CursorLine ctermbg=238 guibg=#3C3C3C
+
+
+" 배경 투명화 설정 (깜빡임 현상 완화)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight FoldColumn guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight CursorLineNr guibg=NONE ctermbg=NONE
+
+
+" 파일 타입에 따른 들여쓰기 설정
+augroup filetype_settings
+  autocmd!
+  " JS와 JSON 파일은 2칸으로 설정
+  autocmd FileType javascript,json,typescript,ruby,html,css setlocal shiftwidth=2 tabstop=2
+augroup END
+
