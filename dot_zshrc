@@ -21,6 +21,7 @@ source $ZSH/oh-my-zsh.sh # compinit 실행 시점
 ## ─────────────────────────────────────────────
 typeset -U path
 export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 ## NeoVim alias
 alias vim="nvim"
@@ -28,6 +29,7 @@ alias vi="nvim"
 alias vimdiff="nvim -d"
 export EDITOR="/opt/homebrew/bin/nvim"
 
+## Custom alias
 alias ll="ls -alhF"
 alias ta="tmux attach -t"
 
