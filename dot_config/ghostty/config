@@ -12,14 +12,18 @@ theme = Catppuccin Macchiato
 # theme = dark:OneHalfDark,light:OneHalfLight
 
 # 폰트 설정
-font-family = D2Coding
+#font-family = D2Coding
+#font-family = D2CodingLigature Nerd Font Mono
 #font-family = Sarasa Term K
+font-family = Sarasa Term Slab K
+#font-family = Sarasa Term Slab K Nerd Font
+#font-family = Sarasa Term K Nerd Font
+#font-family = Sarasa Mono Slab K
+#font-family = Jetendard
 #font-family = Apple SD Gothic Neo
 #font-family-bold = D2Coding Bold
 #font-family-italic = D2Coding
 #font-family-bold-italic = D2Coding Bold
-
-
 #font-family = Sarasa Term K
 #font-family-bold =  Sarasa Term K Bold
 #font-family-italic = Sarasa Term K Italic
@@ -105,6 +109,11 @@ keybind = cmd+delete=text:\x0b
 # Cmd+Option+Left/Right 로 탭 전환
 keybind = cmd+option+left=previous_tab
 keybind = cmd+option+right=next_tab
+
+# Cmd+Left/Right: 기본값은 Ctrl-A/Ctrl-E(readline)인데, tmux prefix를 C-a로 바꿔놔서
+# tmux 안에서는 Ctrl-A가 prefix로 먹혀버림. Home/End 시퀀스로 바꿔서 tmux와 충돌 회피
+keybind = cmd+left=text:\x1b[H
+keybind = cmd+right=text:\x1b[F
 
 # 스크롤백 용량 (바이트 단위)
 # 100MB
