@@ -1,99 +1,30 @@
-# 테마 설정
-#theme = TokyoNight Storm
+# ~/.config/ghostty/config
+# ════════════════════════════════════════════════════════════
+
+# ── 테마 ────────────────────────────────────────────────────
 theme = Catppuccin Macchiato
-#theme = Catppuccin Mocha
-#theme = Catppuccin Latte
-#theme = Nord
-#theme = Snazzy Soft
-#theme = dark:OneHalfDark,light:OneHalfLight
-#theme = tokyonight
-# OS의 light mode, dark mode에 따라 동적으로 테마 지정
-# theme = dark:tokyonight,light:tokyonight-day
-# theme = dark:OneHalfDark,light:OneHalfLight
 
-# 폰트 설정
-#font-family = D2Coding
-#font-family = D2CodingLigature Nerd Font Mono
-#font-family = Sarasa Term K
+# ── 폰트 ────────────────────────────────────────────────────
 font-family = Sarasa Term Slab K
-#font-family = Sarasa Term Slab K Nerd Font
-#font-family = Sarasa Term K Nerd Font
-#font-family = Sarasa Mono Slab K
-#font-family = Jetendard
-#font-family = Apple SD Gothic Neo
-#font-family-bold = D2Coding Bold
-#font-family-italic = D2Coding
-#font-family-bold-italic = D2Coding Bold
-#font-family = Sarasa Term K
-#font-family-bold =  Sarasa Term K Bold
-#font-family-italic = Sarasa Term K Italic
-#font-family-bold-italic = Sarasa Term K Bold Italic
-
-
-#font-family = Sarasa Term Slab K
-#font-family-bold =  Sarasa Term K Bold
-#font-family-italic = Sarasa Term K Italic
-#font-family-bold-italic = Sarasa Term K Bold Italic
-
-
-#font-synthetic-style = bold
-#font-family = Noto Sans Mono CJK KR
-#font-family = Sarasa Term K
-#font-style = Regular
-#font-style-bold = Bold
-#font-style-italic = Regular
-#font-style-bold-italic = Bold
-#font-family = Sarasa Term K Nerd Font
-#font-family-bold = D2CodingLigature Nerd Font Mono Bold
-#font-family = Sarasa Term Slab K Nerd Font
 font-size = 16
 font-thicken = true
-font-thicken-strength = 100
 
-## ligature 비활성화
+# ligature 비활성화
 font-feature = -calt, -liga, -dlig
 
-## line height 설정
+# line height 조정
 adjust-cell-height = 20%
 
-# 윈도우 패딩 (좌/우)
+# ── 윈도우 ──────────────────────────────────────────────────
+# 좌/우 패딩
 window-padding-x = 10,10
-
-# 윈도우 패딩 (상/하)
+# 상/하 패딩
 window-padding-y = 10,10
 
-# cursor
-#cursor-style = underline
-#cursor-style-blink = true
-
-# clipboard
-# copy-on-select = clipboard
-# clipboard-trim-trailing-spaces = true
-
-# # mouse
-# mouse-scroll-multiplier = 2
-# mouse-hide-while-typing = true
-
-# window
-# initial-window = true
-# resize-overlay = never
-# background-opacity = 0.95
-# background-blur-radius = 10
-# window-save-state = always
-# window-step-resize = false
-# window-padding-balance = true
-# confirm-close-surface = false
-
-# # behavior
-# auto-update = off
-# # auto-update-channel = stable
-# quit-after-last-window-closed = true
-# shell-integration-features = true
-
-# macos
+# ── macOS ───────────────────────────────────────────────────
 macos-option-as-alt = true
-# macos-titlebar-style = transparent
 
+# ── 키 바인딩: 커서 이동 / 텍스트 삭제 ─────────────────────────
 # ⌥⌫ : 뒤 단어 삭제 (readline: backward-kill-word = ESC + DEL)
 #keybind = opt+backspace=text:\x1b\x7f
 
@@ -106,24 +37,17 @@ keybind = opt+delete=esc:d
 # ⌘⌦ : 커서부터 줄 끝까지 삭제 (readline: Ctrl-K)
 keybind = cmd+delete=text:\x0b
 
-# Cmd+Option+Left/Right 로 탭 전환
-keybind = cmd+option+left=previous_tab
-keybind = cmd+option+right=next_tab
-
-# Cmd+Left/Right: 기본값은 Ctrl-A/Ctrl-E(readline)인데, tmux prefix를 C-a로 바꿔놔서
-# tmux 안에서는 Ctrl-A가 prefix로 먹혀버림. Home/End 시퀀스로 바꿔서 tmux와 충돌 회피
+# ⌘←/→ : 줄 처음/끝으로 이동
+# 기본값은 Ctrl-A/Ctrl-E(readline)인데, tmux prefix를 C-a로 바꿔놔서
+# tmux 안에서는 Ctrl-A가 prefix로 먹혀버림 → Home/End 시퀀스로 대체해 충돌 회피
 keybind = cmd+left=text:\x1b[H
 keybind = cmd+right=text:\x1b[F
 
-# 스크롤백 용량 (바이트 단위)
-# 100MB
+# ── 키 바인딩: 탭 전환 ─────────────────────────────────────────
+# ⌘⌥←/→ : 이전/다음 탭
+keybind = cmd+option+left=previous_tab
+keybind = cmd+option+right=next_tab
+
+# ── 기타 ────────────────────────────────────────────────────
+# 스크롤백 용량 (100MB, 바이트 단위)
 scrollback-limit = 100000000
-
-# 클립보드: 뒤 공백 제거 (존재하는 키)
-# clipboard-trim-trailing-spaces = true
-
-# 마지막 창 닫으면 앱 종료 (정상 옵션)
-# quit-after-last-window-closed = true
-
-desktop-notifications = true
-

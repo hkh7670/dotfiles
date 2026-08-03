@@ -1,4 +1,7 @@
-# oh-my-zsh 설정
+# ~/.zshrc
+# ════════════════════════════════════════════════════════════
+
+# ── oh-my-zsh ────────────────────────────────────────────────
 ZSH_THEME="" # Starship이 프롬프트를 관리하므로 비워둠
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(
@@ -8,45 +11,51 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
-## Homebrew 공식 shellenv 설정 (PATH/FPATH/MANPATH 등) - compinit 실행 전에 있어야 함
+
+# Homebrew 공식 shellenv 설정 (PATH/FPATH/MANPATH 등) - compinit 실행 전에 있어야 함
 eval "$(/opt/homebrew/bin/brew shellenv)"
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $HOME/.catppuccin-zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh # compinit 실행 시점
 
-## ─────────────────────────────────────────────
-## PATH 설정 (한 곳에 모아서 관리)
-## /opt/homebrew 관련 경로는 위쪽 brew shellenv에서 이미 설정됨
-## typeset -U path 로 중복 경로는 자동 제거됨
-## ─────────────────────────────────────────────
+# ── 키 바인딩: Home/End (Ghostty의 cmd+←/→ 대응) ─────────────
+# Ghostty가 cmd+←/→ 로 \e[H, \e[F 를 보내는데, 현재 terminfo의 khome/kend는
+# 다른 시퀀스(\eOH, \eOF)라 zsh가 기본적으로 인식하지 못해 명시적으로 바인딩
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+
+# ── PATH ────────────────────────────────────────────────────
+# /opt/homebrew 관련 경로는 위쪽 brew shellenv에서 이미 설정됨
+# typeset -U path 로 중복 경로는 자동 제거됨
 typeset -U path
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-## NeoVim alias
+# ── 에디터 ──────────────────────────────────────────────────
 alias vim="nvim"
 alias vi="nvim"
 alias vimdiff="nvim -d"
 export EDITOR="/opt/homebrew/bin/nvim"
 
-## Custom alias
+# ── 편의 alias ──────────────────────────────────────────────
 alias ll="ls -alhF"
 alias ta="tmux attach -t"
 
-## Activate starship prompt (oh-my-zsh 이후에 로드해야 테마가 덮어쓰이지 않음)
+# ── 프롬프트 / 셸 도구 활성화 ─────────────────────────────────
+# oh-my-zsh 이후에 로드해야 테마가 덮어쓰이지 않음
 eval "$(starship init zsh)"
-## Activate mise
 eval "$(mise activate zsh)"
-## Activate fzf
 source <(fzf --zsh)
 
-
-# 터널링 스크립트 Import
+# ── SSH 터널링 alias ────────────────────────────────────────
 if [ -f "$HOME/.ssh-tunneling-alias" ]; then
     source "$HOME/.ssh-tunneling-alias"
 fi
 
-# AWS 프로필 전환 (현재 세션에만 적용)
+# ── AWS 프로필 전환 ─────────────────────────────────────────
+# 현재 세션에만 적용
 function awsuse() {
   export AWS_PROFILE=$1
   echo "✅ AWS profile switched to: $1"
@@ -59,7 +68,7 @@ function awswho() {
   aws sts get-caller-identity
 }
 
-# 자동완성
+# 프로필 자동완성
 function _awsuse() {
   local -a profiles
   profiles=("${(@f)$(aws configure list-profiles 2>/dev/null)}")
@@ -67,7 +76,6 @@ function _awsuse() {
 }
 compdef _awsuse awsuse
 
-
+# ── 프로젝트별 alias ────────────────────────────────────────
 # 백엔드 빌드파일 원격 Copy
 alias scp-spring-boot-jar="scp $HOME/workspace/spring-boot-kotlin-practice/build/libs/spring-boot-kotlin-practice.jar mac-mini:docker/spring-boot/app.jar"
-
