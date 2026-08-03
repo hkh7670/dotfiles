@@ -4,12 +4,13 @@
 # ── oh-my-zsh ────────────────────────────────────────────────
 ZSH_THEME="" # Starship이 프롬프트를 관리하므로 비워둠
 export ZSH="$HOME/.oh-my-zsh"
+# fzf는 아래쪽 `source <(fzf --zsh)`로 초기화하므로 여기에 넣지 않는다 (넣으면 키바인딩 이중 등록)
+# zsh-syntax-highlighting은 다른 플러그인이 등록한 ZLE 위젯을 감싸야 하므로 반드시 마지막
 plugins=(
   docker
   git
-  fzf
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # Homebrew 공식 shellenv 설정 (PATH/FPATH/MANPATH 등) - compinit 실행 전에 있어야 함
