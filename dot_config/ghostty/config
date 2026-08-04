@@ -5,12 +5,9 @@
 theme = Catppuccin Macchiato
 
 # ── 폰트 ────────────────────────────────────────────────────
-font-family = Sarasa Term Slab K
+font-family = Sarasa Fixed Slab K
 font-size = 16
 font-thicken = true
-
-# ligature 비활성화
-font-feature = -calt, -liga, -dlig
 
 # line height 조정
 adjust-cell-height = 20%
