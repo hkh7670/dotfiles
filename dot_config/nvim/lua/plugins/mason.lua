@@ -9,6 +9,7 @@ return {
       "prettierd",
       "ktlint",
       "clang-format",
+      "google-java-format",
     },
   },
 }
