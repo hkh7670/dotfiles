@@ -4,7 +4,7 @@ return {
     name = "catppuccin",
     priority = 1000, -- 다른 플러그인보다 먼저 로드
     opts = {
-      flavour = "macchiato", -- latte, frappe, macchiato, mocha 중 선택
+      flavour = "mocha", -- latte, frappe, macchiato, mocha 중 선택
       transparent_background = false,
       integrations = {
         cmp = true,
@@ -25,7 +25,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "catppuccin-mocha",
     },
   },
 }

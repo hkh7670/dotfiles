@@ -2,10 +2,10 @@
 # ════════════════════════════════════════════════════════════
 
 # ── 테마 ────────────────────────────────────────────────────
-theme = Catppuccin Macchiato
+theme = Catppuccin Mocha
 
 # ── 폰트 ────────────────────────────────────────────────────
-font-family = Sarasa Fixed Slab K
+font-family = D2Coding
 font-size = 16
 font-thicken = true
 
