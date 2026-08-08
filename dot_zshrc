@@ -17,6 +17,15 @@ plugins=(
 eval "$(/opt/homebrew/bin/brew shellenv)"
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $HOME/.catppuccin-zsh-syntax-highlighting.zsh
+
+# Fzf Theme (Catppuccin Mocha)
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=selected-bg:#45475A \
+--color=border:#6C7086,label:#CDD6F4"
+
 source $ZSH/oh-my-zsh.sh # compinit 실행 시점
 
 # ── 키 바인딩: Home/End (Ghostty의 cmd+←/→ 대응) ─────────────
@@ -32,7 +41,7 @@ bindkey "\eOF" end-of-line
 # typeset -U path 로 중복 경로는 자동 제거됨
 typeset -U path
 export PATH="$HOME/.local/bin:$PATH"
-export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME="$HOME/.config" # Change Lazygit Config Path
 
 # ── 에디터 ──────────────────────────────────────────────────
 alias vim="nvim"
