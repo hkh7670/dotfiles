@@ -5,8 +5,8 @@
 theme = Catppuccin Mocha
 
 # ── 폰트 ────────────────────────────────────────────────────
-#font-family = D2Coding
-font-family = GLG-Mono
+font-family = D2Coding
+#font-family = GLG-Mono
 font-size = 16
 font-thicken = true
 
