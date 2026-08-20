@@ -53,7 +53,7 @@ export EDITOR="/opt/homebrew/bin/nvim"
 alias ll="ls -alhF"
 alias ta="tmux attach -t"
 
-# ── 프롬프트 / 셸 도구 활성화 ─────────────────────────────────
+# ── 프롬프트 / 셸 도구 활성화 ───────────────────────────────
 # oh-my-zsh 이후에 로드해야 테마가 덮어쓰이지 않음
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
