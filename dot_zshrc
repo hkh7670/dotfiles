@@ -86,6 +86,11 @@ function _awsuse() {
 }
 compdef _awsuse awsuse
 
+# ECC hooks
+export ECC_DISABLED_HOOKS="stop:desktop-notify"
+
 # ── 프로젝트별 alias ────────────────────────────────────────
 # 백엔드 빌드파일 원격 Copy
 alias scp-spring-boot-jar="scp $HOME/workspace/spring-boot-kotlin-practice/build/libs/spring-boot-kotlin-practice.jar mac-mini:docker/spring-boot/app.jar"
+
+
