@@ -2,3 +2,10 @@
 	name = 한규호
 	email = hkh7670@gmail.com
 
+[include]
+  path = ~/.config/delta/catppuccin/catppuccin.gitconfig
+
+[delta]
+  features = catppuccin-mocha
+  line-numbers = true
+  dark = true

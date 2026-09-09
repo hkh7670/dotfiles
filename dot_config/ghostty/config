@@ -6,7 +6,6 @@ theme = Catppuccin Mocha
 
 # ── 폰트 ────────────────────────────────────────────────────
 font-family = D2Coding
-#font-family = GLG-Mono
 font-size = 16
 font-thicken = true
 
@@ -15,9 +14,9 @@ adjust-cell-height = 20%
 
 # ── 윈도우 ──────────────────────────────────────────────────
 # 좌/우 패딩
-window-padding-x = 10,10
+window-padding-x = 10
 # 상/하 패딩
-window-padding-y = 10,10
+window-padding-y = 10
 
 # ── macOS ───────────────────────────────────────────────────
 macos-option-as-alt = true
