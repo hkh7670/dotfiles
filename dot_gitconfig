@@ -1,15 +1,16 @@
 [user]
-	name = 한규호
-	email = hkh7670@gmail.com
+  name = 한규호
+  email = hkh7670@gmail.com
 
 [include]
   path = ~/.config/delta/catppuccin/catppuccin.gitconfig
 
 [core]
-    pager = delta
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
+
 
 [delta]
   features = catppuccin-mocha
