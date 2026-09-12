@@ -1,8 +1,10 @@
 git:
   diffRenderers:
     - name: delta
-      command: delta --dark --paging=never
+      type: stdinFilter
       colorArg: always
+      command: delta --paging=never
+
 gui:
   theme:
     activeBorderColor:
