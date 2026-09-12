@@ -45,6 +45,10 @@ keybind = cmd+right=text:\x1b[F
 keybind = cmd+option+left=previous_tab
 keybind = cmd+option+right=next_tab
 
+# ── 클립보드 관련 설정 ─────────────────────────────────────────
+clipboard-write = allow
+clipboard-read = allow
+
 # ── 기타 ────────────────────────────────────────────────────
 # 스크롤백 용량 (100MB, 바이트 단위)
 scrollback-limit = 100000000
