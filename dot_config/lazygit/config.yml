@@ -6,6 +6,8 @@ git:
       command: delta --paging=never
 
 gui:
+  nerdFontsVersion: "3"
+  showFileIcons: true
   theme:
     activeBorderColor:
       - "#7dc4e4"
