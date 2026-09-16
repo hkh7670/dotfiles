@@ -1,4 +1,5 @@
 [tools]
 java = "temurin-25"
 node = "24"
+python = "3.13"
 yarn = "4"
