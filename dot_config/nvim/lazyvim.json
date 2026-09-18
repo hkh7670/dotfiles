@@ -8,8 +8,7 @@
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.typescript",
-    "lazyvim.plugins.extras.lang.typescript.oxc",
-    "lazyvim.plugins.extras.ui.smear-cursor"
+    "lazyvim.plugins.extras.lang.typescript.oxc"
   ],
   "install_version": 8,
   "news": {
