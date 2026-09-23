@@ -52,6 +52,7 @@ export EDITOR="/opt/homebrew/bin/nvim"
 # ── 편의 alias ──────────────────────────────────────────────
 alias ll="ls -alhF"
 alias ta="tmux attach -t"
+alias lg="lazygit"
 
 # ── 프롬프트 / 셸 도구 활성화 ───────────────────────────────
 # oh-my-zsh 이후에 로드해야 테마가 덮어쓰이지 않음
