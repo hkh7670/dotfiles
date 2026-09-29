@@ -46,8 +46,10 @@ keybind = cmd+option+left=previous_tab
 keybind = cmd+option+right=next_tab
 
 # ── 클립보드 관련 설정 ─────────────────────────────────────────
+# write: 원격(SSH + tmux) 복사가 OSC 52로 로컬 클립보드에 쓰는 데 필요
+# read : 원격 프로그램이 로컬 클립보드를 읽는 것이므로 매번 확인 후 허용
 clipboard-write = allow
-clipboard-read = allow
+clipboard-read = ask
 
 # ── 기타 ────────────────────────────────────────────────────
 # 스크롤백 용량 (100MB, 바이트 단위)
