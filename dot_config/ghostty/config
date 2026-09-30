@@ -13,10 +13,10 @@ font-thicken = true
 adjust-cell-height = 20%
 
 # ── 윈도우 ──────────────────────────────────────────────────
-# 좌/우 패딩
 window-padding-x = 10
-# 상/하 패딩
-window-padding-y = 10
+window-padding-y = 8,4
+window-padding-balance = true
+window-padding-color = extend
 
 # ── macOS ───────────────────────────────────────────────────
 macos-option-as-alt = true
