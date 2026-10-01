@@ -5,6 +5,10 @@
 -- 커서 위/아래에 유지할 최소 줄 수
 vim.opt.scrolloff = 8
 
+-- 맞춤법 검사에서 한글 등 동아시아 문자를 제외한다.
+-- LazyVim은 markdown/text에서 spell을 켜는데, 영어 사전만 쓰면 한글 단어가 모두 오류로 표시된다.
+vim.opt.spelllang = { "en", "cjk" }
+
 -- 클립보드 (SSH + tmux 환경)
 --
 -- 복사: nvim → tmux 버퍼 → OSC 52 → SSH → 로컬 터미널 → 로컬 OS 클립보드
