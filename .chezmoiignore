@@ -1,2 +1,12 @@
 README.md
 .config/nvim/nvim-pack-lock.json
+
+# 설치 스크립트는 홈 디렉터리로 복사하지 않는다 (저장소에서 직접 실행)
+scripts
+scripts/**
+
+{{ if ne .chezmoi.os "darwin" -}}
+# macOS 전용 앱 설정
+.config/ghostty
+.config/ghostty/**
+{{ end -}}
