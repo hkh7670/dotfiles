@@ -3,3 +3,6 @@ java = "temurin-25"
 node = "24"
 python = "3.13"
 yarn = "4"
+# 에디터(nvim, Zed, VS Code)가 공통으로 쓰는 포매터
+google-java-format = "latest"
+ktlint = "latest"
