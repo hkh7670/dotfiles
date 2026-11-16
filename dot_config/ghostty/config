@@ -5,11 +5,10 @@
 theme = Catppuccin Mocha
 
 # ── 폰트 ────────────────────────────────────────────────────
-#font-family = D2Coding
-font-family = Monoplex CJK
+font-family = D2Coding
 font-size = 16
 font-thicken = true
-#font-feature = cv01
+font-feature = cv01
 
 # line height 조정
 adjust-cell-height = 20%
