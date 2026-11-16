@@ -1,0 +1,162 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "proxy": "",
+  "auto_update": false,
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "buffer_font_family": "D2Coding",
+  "buffer_font_fallbacks": [
+    "D2KodingLigature Nerd Font",
+    "D2KodingLigature Nerd Font Mono",
+    "Monoplex CJK Nerd Font",
+    "Monoplex CJK",
+  ],
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": false,
+    "cv01": true
+  },
+  "terminal": {
+    "line_height": "comfortable",
+  },
+  "ssh_connections": [
+    {
+      "host": "mac-mini",
+      "port_forwards": [
+        {
+          "local_port": 3000,
+          "remote_port": 3000,
+        },
+      ],
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/Users/kyu/workspace/e-commerce-frontend/"],
+        },
+        {
+          "paths": ["/Users/kyu/workspace/peopulley/pinkfong-media"],
+        },
+        {
+          "paths": ["/Users/kyu/workspace/spring-boot-kotlin-practice/"],
+        },
+      ],
+    },
+    {
+      "host": "mac-mini",
+      "args": [],
+      "projects": [],
+    },
+  ],
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "fast-mode": false,
+      },
+      "type": "registry",
+    },
+  },
+  "base_keymap": "JetBrains",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+  },
+  "languages": {
+    // 포매터는 nvim(conform.nvim)과 같은 도구와 인자를 쓴다.
+    // 바이너리는 mise가 설치한다(~/.config/mise/config.toml).
+    "Java": {
+      "language_servers": ["jdtls"],
+      // google-java-format(Google Style)은 2칸 들여쓰기로 포맷한다.
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "formatter": {
+        "external": {
+          "command": "google-java-format",
+          "arguments": ["-"],
+        },
+      },
+      "format_on_save": "on",
+    },
+    "Kotlin": {
+      "language_servers": ["kotlin-lsp"],
+      "tab_size": 4,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "formatter": {
+        "external": {
+          "command": "ktlint",
+          "arguments": ["--format", "--stdin", "--log-level=none"],
+        },
+      },
+      "format_on_save": "on",
+    },
+    // JS/TS 포매터는 기본값에 맡기고, oxfmt를 쓰는 프로젝트는 .zed/settings.json에서 지정한다.
+    "TypeScript": {
+      "tab_size": 2,
+      "format_on_save": "on",
+    },
+    "TSX": {
+      "tab_size": 2,
+      "format_on_save": "on",
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      "format_on_save": "on",
+    },
+  },
+  // JAVA_HOME은 셸 환경(mise)에서 받는다. Zed는 "~"를 확장하지 않아 경로를 직접 적으면 Java를 찾지 못한다.
+  "lsp": {
+    "jdtls": {
+      "settings": {
+        "lombok_support": true,
+      },
+    },
+  },
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "emmet": true,
+    "git-firefly": true,
+    "html": true,
+    "java": true,
+    "kotlin": true,
+    "material-icon-theme": true,
+    "oxc": true,
+    "sql": true,
+    "toml": true,
+    "vue": true,
+  },
+}
